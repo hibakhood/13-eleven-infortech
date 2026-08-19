@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "13-Eleven Infotech Nigeria Ltd."
+description = "A premium responsive website for a Nigerian technology retail and services company in Ibadan, featuring products, services, local SEO, WhatsApp inquiries, and contact/location details."
+version = "1.0.0"
+id = "artifacts/13-eleven-infortech"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25668
+
+[services.development]
+run = "pnpm --filter @workspace/13-eleven-infortech run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/13-eleven-infortech", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/13-eleven-infortech/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25668"
+BASE_PATH = "/"
