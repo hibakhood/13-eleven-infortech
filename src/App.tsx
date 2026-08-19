@@ -46,36 +46,37 @@ function ScrollReveal({ children, className, delay = 0 }: { children: React.Reac
 const queryClient = new QueryClient();
 const WHATSAPP_NUMBER = '2348066169249';
 const WHATSAPP_DISPLAY = '08066169249';
+const BASE = import.meta.env.BASE_URL;
 
 type Category = 'All' | 'Laptops' | 'Phones' | 'Accessories' | 'Security';
 type Product = { name: string; category: Exclude<Category, 'All'>; image: string; note: string; tag?: string; adjust?: 'top' | 'bottom'; fit?: 'contain' };
 
 const products: Product[] = [
-  { name: 'HP Laptop', category: 'Laptops', image: '/template/img/hp-laptop.png', note: 'Reliable everyday computing for home, school or office.', tag: 'Popular' },
-  { name: 'Dell Laptop', category: 'Laptops', image: '/template/img/dell-laptop.png', note: 'A practical workhorse for documents, browsing and learning.' },
-  { name: 'Lenovo Laptop', category: 'Laptops', image: '/template/img/lenovo-laptop.jpg', note: 'Solid performance and durability for professionals and students.' },
-  { name: 'All-in-one Desktop', category: 'Laptops', image: '/template/img/all-in-one.jpg', note: 'A clean, capable setup for the office front desk.' },
-  { name: 'Desktop Monitor', category: 'Laptops', image: '/template/img/desktop-monitor.jpg', note: 'Sharp display for work, study or entertainment setups.' },
-  { name: 'Other Laptop Products', category: 'Laptops', image: '/template/img/other-laptops.jpg', note: 'Keyboards, chargers, bags and other laptop essentials.' },
-  { name: 'iPhone', category: 'Phones', image: '/template/img/iphone.jpg', note: 'Carefully checked devices for everyday confidence.' },
-  { name: 'Samsung Galaxy Note', category: 'Phones', image: '/template/img/samsung-galaxy-note.jpg', note: 'Large-screen productivity with S Pen for busy professionals.' },
-  { name: 'Samsung Galaxy', category: 'Phones', image: '/template/img/samsung-galaxy-series.jpg', note: 'Premium Android performance with a bright, capable camera.' },
-  { name: 'iPad', category: 'Phones', image: '/template/img/ipad.jpg', note: 'Tablets for learning, entertainment and light productivity.' },
-  { name: 'Samsung Tablet', category: 'Phones', image: '/template/img/samsung-tablets.jpg', note: 'Portable screens for work and media on the go.' },
-  { name: 'Other Android Phones', category: 'Phones', image: '/template/img/other-android-phones.jpg', note: 'Wide range of Android options to fit every budget.' },
-  { name: 'Wireless Headphones', category: 'Accessories', image: '/template/img/wireless-headphones.jpg', note: 'Comfortable audio for work, commutes and downtime.', tag: 'New', fit: 'contain' },
-  { name: 'Smart Fitness Watch', category: 'Accessories', image: '/template/img/product-2.png', note: 'Simple activity tracking with a clean wrist profile.', fit: 'contain' },
-  { name: 'Keyboard', category: 'Accessories', image: '/template/img/keyboard.jpg', note: 'Wired and wireless keyboards for every workspace.' },
-  { name: 'Mouse', category: 'Accessories', image: '/template/img/mouse.jpg', note: 'Precision mice for work, design and everyday use.' },
-  { name: 'Storage Drives', category: 'Accessories', image: '/template/img/storage-drives.jpg', note: 'External hard drives and flash drives for safe file backup.' },
-  { name: 'Connectors & Adapters', category: 'Accessories', image: '/template/img/connectors.jpg', note: 'HDMI, USB hubs, chargers and essential connectivity gear.' },
-  { name: 'Other Accessories', category: 'Accessories', image: '/template/img/other-accessories.jpg', note: 'Phone cases, screen guards, stands and other add-ons.' },
-  { name: 'Wireless Cameras', category: 'Security', image: '/template/img/wireless-camera.jpg', note: 'Wire-free cameras for easy home and office monitoring.', fit: 'contain' },
-  { name: 'Wired Cameras', category: 'Security', image: '/template/img/wired-camera.jpg', note: 'Reliable wired CCTV for continuous, high-quality surveillance.' },
-  { name: 'Network Installation Kit', category: 'Security', image: '/template/img/network-installation-kits.jpg', note: 'Better-connected workspaces, homes and school environments.' },
-  { name: 'Drones', category: 'Security', image: '/template/img/drones.jpg', note: 'Aerial surveillance and imaging for events, farms and sites.' },
-  { name: 'Dome Security Camera', category: 'Security', image: '/template/img/dome-security-camera.jpg', note: 'Discreet ceiling-mount cameras for shops and offices.' },
-  { name: 'PTZ Camera', category: 'Security', image: '/template/img/ptz-camera.jpg', note: 'Pan-tilt-zoom cameras for wide-area coverage.', adjust: 'top', fit: 'contain' },
+  { name: 'HP Laptop', category: 'Laptops', image: `${BASE}template/img/hp-laptop.png`, note: 'Reliable everyday computing for home, school or office.', tag: 'Popular' },
+  { name: 'Dell Laptop', category: 'Laptops', image: `${BASE}template/img/dell-laptop.png`, note: 'A practical workhorse for documents, browsing and learning.' },
+  { name: 'Lenovo Laptop', category: 'Laptops', image: `${BASE}template/img/lenovo-laptop.jpg`, note: 'Solid performance and durability for professionals and students.' },
+  { name: 'All-in-one Desktop', category: 'Laptops', image: `${BASE}template/img/all-in-one.jpg`, note: 'A clean, capable setup for the office front desk.' },
+  { name: 'Desktop Monitor', category: 'Laptops', image: `${BASE}template/img/desktop-monitor.jpg`, note: 'Sharp display for work, study or entertainment setups.' },
+  { name: 'Other Laptop Products', category: 'Laptops', image: `${BASE}template/img/other-laptops.jpg`, note: 'Keyboards, chargers, bags and other laptop essentials.' },
+  { name: 'iPhone', category: 'Phones', image: `${BASE}template/img/iphone.jpg`, note: 'Carefully checked devices for everyday confidence.' },
+  { name: 'Samsung Galaxy Note', category: 'Phones', image: `${BASE}template/img/samsung-galaxy-note.jpg`, note: 'Large-screen productivity with S Pen for busy professionals.' },
+  { name: 'Samsung Galaxy', category: 'Phones', image: `${BASE}template/img/samsung-galaxy-series.jpg`, note: 'Premium Android performance with a bright, capable camera.' },
+  { name: 'iPad', category: 'Phones', image: `${BASE}template/img/ipad.jpg`, note: 'Tablets for learning, entertainment and light productivity.' },
+  { name: 'Samsung Tablet', category: 'Phones', image: `${BASE}template/img/samsung-tablets.jpg`, note: 'Portable screens for work and media on the go.' },
+  { name: 'Other Android Phones', category: 'Phones', image: `${BASE}template/img/other-android-phones.jpg`, note: 'Wide range of Android options to fit every budget.' },
+  { name: 'Wireless Headphones', category: 'Accessories', image: `${BASE}template/img/wireless-headphones.jpg`, note: 'Comfortable audio for work, commutes and downtime.', tag: 'New', fit: 'contain' },
+  { name: 'Smart Fitness Watch', category: 'Accessories', image: `${BASE}template/img/product-2.png`, note: 'Simple activity tracking with a clean wrist profile.', fit: 'contain' },
+  { name: 'Keyboard', category: 'Accessories', image: `${BASE}template/img/keyboard.jpg`, note: 'Wired and wireless keyboards for every workspace.' },
+  { name: 'Mouse', category: 'Accessories', image: `${BASE}template/img/mouse.jpg`, note: 'Precision mice for work, design and everyday use.' },
+  { name: 'Storage Drives', category: 'Accessories', image: `${BASE}template/img/storage-drives.jpg`, note: 'External hard drives and flash drives for safe file backup.' },
+  { name: 'Connectors & Adapters', category: 'Accessories', image: `${BASE}template/img/connectors.jpg`, note: 'HDMI, USB hubs, chargers and essential connectivity gear.' },
+  { name: 'Other Accessories', category: 'Accessories', image: `${BASE}template/img/other-accessories.jpg`, note: 'Phone cases, screen guards, stands and other add-ons.' },
+  { name: 'Wireless Cameras', category: 'Security', image: `${BASE}template/img/wireless-camera.jpg`, note: 'Wire-free cameras for easy home and office monitoring.', fit: 'contain' },
+  { name: 'Wired Cameras', category: 'Security', image: `${BASE}template/img/wired-camera.jpg`, note: 'Reliable wired CCTV for continuous, high-quality surveillance.' },
+  { name: 'Network Installation Kit', category: 'Security', image: `${BASE}template/img/network-installation-kits.jpg`, note: 'Better-connected workspaces, homes and school environments.' },
+  { name: 'Drones', category: 'Security', image: `${BASE}template/img/drones.jpg`, note: 'Aerial surveillance and imaging for events, farms and sites.' },
+  { name: 'Dome Security Camera', category: 'Security', image: `${BASE}template/img/dome-security-camera.jpg`, note: 'Discreet ceiling-mount cameras for shops and offices.' },
+  { name: 'PTZ Camera', category: 'Security', image: `${BASE}template/img/ptz-camera.jpg`, note: 'Pan-tilt-zoom cameras for wide-area coverage.', adjust: 'top', fit: 'contain' },
 ];
 
 const services = [
@@ -173,10 +174,10 @@ function Navbar({ menuOpen, setMenuOpen }: { menuOpen: boolean; setMenuOpen: (op
 }
 
 const heroSlides = [
-  '/template/img/carousel-1.jpg',
-  '/template/img/hero-slide-1.jpg',
-  '/template/img/hero-slide-2.webp',
-  '/template/img/hero-slide-3.webp',
+  `${BASE}template/img/carousel-1.jpg`,
+  `${BASE}template/img/hero-slide-1.jpg`,
+  `${BASE}template/img/hero-slide-2.webp`,
+  `${BASE}template/img/hero-slide-3.webp`,
 ];
 
 function Hero() {
@@ -257,10 +258,10 @@ function Stats() {
 
 function ShopCategories() {
   const categories = [
-    { title: 'Laptops & desktops', count: '6 products', image: '/template/img/laptops-desktops.webp', href: '#shop' },
-    { title: 'Phones', count: '6 products', image: '/template/img/phones.jpg', href: '#shop' },
-    { title: 'Accessories', count: '7 products', image: '/template/img/accessories.jpg', href: '#shop' },
-    { title: 'Security', count: '6 products', image: '/template/img/product-banner-3.jpg', href: '#shop' },
+    { title: 'Laptops & desktops', count: '6 products', image: `${BASE}template/img/laptops-desktops.webp`, href: '#shop' },
+    { title: 'Phones', count: '6 products', image: `${BASE}template/img/phones.jpg`, href: '#shop' },
+    { title: 'Accessories', count: '7 products', image: `${BASE}template/img/accessories.jpg`, href: '#shop' },
+    { title: 'Security', count: '6 products', image: `${BASE}template/img/product-banner-3.jpg`, href: '#shop' },
   ];
   return (
     <ScrollReveal>
@@ -353,7 +354,7 @@ function About() {
     <ScrollReveal>
       <section id="about" className="section section-tint" aria-labelledby="about-heading">
         <div className="container-wide story-grid">
-          <figure className="story-image"><img src="/template/img/why-13.jpg" alt="13-Eleven Infotech team and technology solutions" loading="lazy" /></figure>
+          <figure className="story-image"><img src={`${BASE}template/img/why-13.jpg`} alt="13-Eleven Infotech team and technology solutions" loading="lazy" /></figure>
           <div className="story-copy">
             <span className="eyebrow">Why 13-Eleven</span>
             <h2 id="about-heading" className="display">A local name you can put a face to.</h2>
